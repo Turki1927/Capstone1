@@ -159,16 +159,6 @@ public  ResponseEntity <?> getProductsByCategoryAndPriceRange (@PathVariable Str
 
 
 
-    @GetMapping("/get-user-order-history/{userID}")
-    public ResponseEntity getUserUserPurchased(@PathVariable String userID) {
-        ArrayList<Product> orderHistory = userService.getUserPurchased(userID);
-
-        if (orderHistory.isEmpty()) {
-            return ResponseEntity.status(400).body(new ApiResponse("There are no user order history"));
-        }
-        return ResponseEntity.status(200).body(orderHistory);
-    }
-
 
     @GetMapping("/favorite-category-products/{id}")
     public ResponseEntity getFavoriteCategoryProducts(@PathVariable String id) {
@@ -228,3 +218,4 @@ public  ResponseEntity <?> getProductsByCategoryAndPriceRange (@PathVariable Str
 
 
 }
+
