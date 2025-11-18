@@ -120,6 +120,10 @@ public  ResponseEntity <?> getProductsByCategoryAndPriceRange (@PathVariable Str
     if(userService.getProductsByCategoryAndPriceRange(categoryId ,minPrice ,maxPrice) == null){
         return ResponseEntity.status(400).body( new ApiResponse( "Failed to get rang price category"));
     }
+     if(userService.getProductsByCategoryAndPriceRange(categoryId ,minPrice ,maxPrice).isEmpty()){
+        return ResponseEntity.status(400).body( new ApiResponse( "There is no product with this range"));
+
+    }
     return ResponseEntity.status(200).body(userService.getProductsByCategoryAndPriceRange(categoryId ,minPrice ,maxPrice));
 }
 
@@ -218,4 +222,5 @@ public  ResponseEntity <?> getProductsByCategoryAndPriceRange (@PathVariable Str
 
 
 }
+
 
